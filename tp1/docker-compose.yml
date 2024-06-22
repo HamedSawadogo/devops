@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  app:
+    build: ./web
+    container_name: books-app
+    depends_on:
+      - database
+    networks:
+      - my_network
+    expose:
+      - 9090
+  database:
+     image: postgres:latest
+     container_name: "master_class_database_test"
+     environment:
+       POSTGRES_USER: 'hamed'
+       POSTGRES_PASSWORD: 'hamed'
+       POSTGRES_BD: 'hamed'
+     restart: always
+     networks:
+       - my_network
+     volumes:
+       - master_class_database:/var/lib/postgres/data
+     ports:
+       - 5436:5432
+networks:
+  my_network: {}
+
+volumes:
+  master_class_database: {}
+
