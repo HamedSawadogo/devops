@@ -1,0 +1,13 @@
+version: '1'
+
+services:
+  spring-boot:
+    image: springapplicationimage
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      - name=value
+    ports:
+      -8080: 8080

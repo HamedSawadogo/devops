@@ -1,0 +1,11 @@
+version: '3.0'
+
+services:
+  app:
+    image: sever_node:1.1
+    expose:
+      - 3000
+    networks:
+      - app_newtwork
+networks:
+  app_newtwork: {}
